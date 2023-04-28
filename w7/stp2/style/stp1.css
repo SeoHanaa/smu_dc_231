@@ -21,7 +21,6 @@
 }
 
 .button {
-  width: -moz-fit-content;
   width: fit-content;
   background-color: cornflowerblue;
   padding: 8px 16px;
@@ -73,8 +72,7 @@
 .main__media img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 #hero1 {

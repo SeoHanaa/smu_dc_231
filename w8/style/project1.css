@@ -57,6 +57,12 @@
   padding-inline: 64px;
 }
 
+.container h2 {
+  max-width: 500px;
+  text-align: center;
+  margin-inline: auto;
+}
+
 .button--type-text {
   width: fit-content;
   background-color: white;
@@ -93,4 +99,17 @@
 
 .imfo h4 {
   padding: 16px;
+}
+
+.imfo .bottom {
+  padding: 8px;
+}
+
+.imfo .bottom__nav {
+  display: flex;
+  padding-block: 12px;
+}
+
+.imfo .bottom__button {
+  padding-right: 20px;
 }

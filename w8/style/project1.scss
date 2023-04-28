@@ -36,13 +36,12 @@
     font: 14px 'arial';
     color: #535353;
     margin: 0px 16px;
-
     }
-
 
 .header__lt680px {
     display: none;
     }
+
 @media (width < 42.5rem) {
     .header__gnb {
          display: none;
@@ -64,7 +63,11 @@
     margin-inline: auto;
     padding-inline: $padding-inline-value;
   }
-
+.container h2 {
+    max-width: 500px;
+    text-align: center;
+    margin-inline: auto
+}
 
 
   .button--type-text {
@@ -106,4 +109,14 @@
 .imfo h4 {
     padding: 16px;
 }
-  
+.imfo .bottom {
+    padding: 8px
+} 
+.imfo .bottom__nav {
+    display: flex;
+    // justify-content: space-between;
+    padding-block: 12px;
+  }
+.imfo .bottom__button {
+    padding-right: 20px;
+}

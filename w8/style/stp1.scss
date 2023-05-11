@@ -1,205 +1,53 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    
+    width: fit-content;
+    color: #49454f;
+    border: 1px solid #79747e;
+    border-radius: 8px;
+
+    font-family: "roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+
+    transition: background-color 200ms ease-in; 
+    &:hover {
+       background-color: #ccb7cf;
+    }
+}
+
+.badge {
+    font-family: "roboto", sans-serif;
+    font-size: 11px;
+    line-height: 16px;
+    background-color: red;
+    aspect-ratio:  1/1;
+    width: 16px;
+    text-align: center;
+    border-radius: 999px;
+    color: white;
+
+    position: relative;
+    left: -8px;
+    top: -16px;
+
+}
 
 .container {
-  $padding-inline-value: 64px;
-  max-width: 1200px + 2 * $padding-inline-value;
-  margin-inline: auto;
-  padding-inline: $padding-inline-value;
-}
-.wrapper {
-  padding-block: 64px;
-}
-
-.button {
-  width: fit-content;
-  background-color: cornflowerblue;
-  padding: 8px 16px;
-  border-radius: 8px;
-  color: white;
-  font-weight: 700;
-  text-align: center;
-  &--type-text {
-    background-color: unset;
-    color: cornflowerblue;
-    padding-inline: 0;
-  }
-}
-
-.nav {
-  font-family: SF Pro KR,SF Pro Text,SF Pro Icons,Apple Gothic,HY Gulim,MalgunGothic,HY Dotum,Lexi Gulim,Helvetica Neue,Helvetica,Arial,sans-serif;
-  background-color: white;
-  color: black;
-  font-weight: 700;
-  content-visibility: inline-size;
-  animation-name: nav;
-
-  
-  .wrapper {
+    background-color: aquamarine;
+    height: 100dvh; 
+    // 브라우저의 높이값에 맞춰서 작용 
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-block: 12px;
-  }
-  &__menuWrapper {
-    display: flex;
-    gap: 24px;
-    align-items: baseline;
-  }
-  .lt680px {
-    display: none;
-  }
-  @container nav (width < 42.5rem) {
-    &__menuWrapper {
-      display: none;
-    }
-    .lt680px {
-      display: unset;
-    }
-  }
-}
-
-.main {
-  &__media {
-    background-color: rgb(209, 233, 255);
-    overflow: hidden;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-}
-
-#hero1 {
-  text-align: center;
-  .button {
-    margin-inline: auto;
-  }
-  .main {
-    &__text {
-      margin-inline: auto;
-      max-width: 600px;
-      margin-bottom: 24px;
-    }
-    &__media {
-      aspect-ratio: 16 / 9;
-    }
-  }
-  h2 {
-    margin-bottom: 16px;
-  }
-  p {
-    margin-bottom: 24px;
-  }
-}
-
-#hero2 {
-  background-color: aliceblue;
-  .wrapper {
-    display: flex;
-    align-items: center;
-    $gap-val: 24px;
-    gap: $gap-val;
-    & > * {
-      flex: 1;
-  
-    }
-  }
-  .main {
-    &__text {
-      &__buttonWrapper {
-        display: flex;
-        gap: 16px;
-      }
-    }
-    &__media {
-      aspect-ratio: 4 / 3;
-    }
-  }
-  h2 {
-    margin-bottom: 16px;
-  }
-  p {
-    max-width: 40ch;
-    margin-bottom: 24px;
-  }
-  @media (width < 53.125rem) {
-    .wrapper {
-      display: block;
-      text-align: center;
-      p {
-        margin-inline: auto;
-      }
-    }
-    .main {
-      &__text {
-        margin-bottom: 2.25rem;
-        &__buttonWrapper {
-          margin-inline: auto;
-          flex-direction: column;
-          align-items: center;
-          gap: 0;
-        }
-      }
-    }
-  }
-}
-
-.footer {
-  background-color: gray;
-  color: white;
-  font-size: 0.875rem;
-  content-visibility: inline-size;
-  animation-name: footer;
-  a {
-    text-decoration: none;
-    color: white;
-  }
-  li {
-    list-style: none;
-  }
-  svg {
-    fill: white;
-  }
-  .wrapper {
-    // display: flex;
-    // justify-content: space-between;
-    // gap: 24px;
-    // > * {
-    //   flex: 1;
-    // }
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 1.5rem;
-  }
-  h2 {
-    font-size: 1rem;
-    margin-top: 0.25rem;
-    margin-bottom: 1rem;
-  }
-  li {
-    margin-bottom: 0.5rem;
-  }
-  &__logo {
-    margin-bottom: 0.75rem;
-  }
-  &__extLinkWrap {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-  @container footer (width < 44.375rem) {
-    .column:first-of-type {
-      grid-row: 1 / span 2;
-    }
-    .wrapper {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
+    justify-content: center;
+    align-items: center; 
 }

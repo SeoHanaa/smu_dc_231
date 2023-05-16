@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stp3</title>
+    <style>
+      .box {
+        cursor: pointer;
+        max-width: 200px;
+        margin-inline: auto;
+        margin-bottom: 1.5rem;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boxA" class="box">A</div>
+    <div class="box">B</div>
+    <div class="box">C</div>
+  </body>
+  <script>
+    let elem = document.getElementById("boxA");
+    console.log(elem);
+    // elem.onclick = alert("안되는사례")
+    elem.onclick = function () {
+      alert("된다!");
+    };
+    // elem.onclick = function () {};
+    // elem.onclick = () => {alert("된다!")};
+    // 아래가 위의 줄임말
+  </script>
+
+  <!-- head일때 자바스크립트는 바디에 있는 내
+    용을 알 수 없음 그리기 전이라서 -->
+  <!-- 바디에 있는 자바스크립트도 잘 모를 수 o -->
+
+  <!-- 이 위치에서 작성되는 요소는 html에서 뭔가 끌어와서 수정하는 용도 -->
+</html>

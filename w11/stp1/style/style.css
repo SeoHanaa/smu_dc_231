@@ -1,0 +1,42 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+.box {
+    aspect-ratio: 1/1;
+    /* 박스의 종횡비를 1:1로  */
+    width:12.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    /* 가로축에 있는 걸 가운데 정렬 */
+    align-items: center;
+    /* 저 정렬된 거를 위로 정렬할지 센터로 정렬할지 아래로 정렬할지 */
+    background-color: bisque;
+    margin-bottom: 1rem;
+    /* 박스 사이를 쫑 쫑 */
+    transition: background-color 500ms ease-in-out;
+    /* all = 변경되는 모든 것들은 애니메이팅해줄게 대신 글자 크기같은 것도 변경됨*/
+}
+
+.box:hover {
+    background-color: cornflowerblue;
+    /* 호버인 경우 콘플라워 
+    우선순위가 020이 됨*/
+}
+
+.box.box--selected {
+    /* 거기에 해당하는 것만 골라짐 .상명대.남자 느낌으로
+    명시하는 거라 우선순위가 더 높음 명시적인 게 더 이김 
+    똑같이 적히면 나중에 적힌 애가 우선순위가 됨 */ 
+    background-color: coral;
+    
+
+}
+
+
+
+
+

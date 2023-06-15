@@ -1,0 +1,113 @@
+
+* {
+	box-sizing: border-box;
+}
+
+.space{
+    padding: .3125rem;
+}
+
+body {
+	cursor: default;
+	margin: 0;
+	--color-text: #fff;
+    --color-gr-1: #ffbd2e;
+    --color-gr-2: #0f5e8f;
+    --color-bg: #272f2e;
+    --color-link: #75aaca;
+	--color-link-hover: #dbb975;
+
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	/* font-family: 'Diphylleia', serif;
+    font-family: 'Song Myung', serif; */
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+.intro__text__font-1 {
+    font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 300;
+}.intro__text__font-2 {
+    font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 400;
+}.intro__text__font-3 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: italic;
+	font-weight: 400,;
+}
+.intro__text__font-4 {
+    font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 700;
+}
+
+.home {
+	text-align: center;
+	display: flex;
+    gap: 1rem;
+    margin:0rem;
+    justify-content: center;
+	transition: opacity 0.4s;
+}
+
+.home:hover {
+	opacity: 0.5;
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+}
+
+a:hover {
+	color: var(--color-link-hover);
+}
+
+.intro {
+	/* max-height: 500px; */
+	margin: auto 0;
+	padding: 0.5rem;
+    /* 뷰포트의 몇% */
+	font-size: 10vw;
+	line-height: 1;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	flex-wrap: wrap;
+	column-gap: 1vw;
+	background-image: linear-gradient(45deg, var(--color-gr-1), var(--color-gr-2));
+	background-size: 100%;
+	background-repeat: repeat;
+
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent; 
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+}
+
+
+.intro__img {
+	cursor: pointer;
+	background-size: cover;
+	border-radius: 20px;
+	transition: opacity 0.4s;  
+}
+
+img {
+    height: 130px;
+    width: auto;
+    object-fit: cover;
+    border-radius: 80px;
+    aspect-ratio: 27/9;
+    padding-top: 4px;
+}
+
+.intro__img:hover {
+ 	opacity: 0.5;
+}
+
+@media (max-width: 37.5rem) {
+	.intro__text {
+		font-size: 32px;
+	}
+ }

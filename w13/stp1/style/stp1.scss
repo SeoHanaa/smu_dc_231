@@ -1,0 +1,245 @@
+@import "theme.dark.css" (prefers-color-scheme: dark);
+@import "theme.light.css" (prefers-color-scheme: light);
+
+$wrapper-padding-inline: 2rem;
+$min-height: 2rem;
+$progressBar-height: 1rem;
+$bg: var(--bg);
+$bgVariant: var(--bgVariant);
+$txt: var(--txt);
+$surface-transparent: var(--surface-transparent);
+$surface: var(--surface);
+$onSurface: var(--onSurface);
+$accent: var(--accent);
+
+
+// 비포나 애프터도 쓸 가능성이 있어 넣음
+// 요즘은 이렇게 너비에 대한 사이즈를 보더박스 사이즈를 기준으로 들어감
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// 클래스 hide를 넣어주면 그 문단이 사라짐
+// 하지만 시각장애로 웹페이지 읽어주기 기능은 이걸 읽어줌 일종의 꿀팁임
+.hide {
+  display: none;
+}
+
+// 사용자가 다크테마냐 라이트테마냐에 따라 왔다갔다해주는 기능
+html {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+  // 마진제거하고 시작
+  background-color: $bg;
+  color: $txt;
+  font-family: system-ui;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  // 사이가 좀 더 커져서 편안해짐
+}
+
+.wrapper {
+  
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: calc(80ch + 2 * $wrapper-padding-inline);
+  min-height: max(50dvh, $min-height);
+  // 최소 높이가 50dvh가 되면 좋겠다
+  margin-inline: auto;
+  // 창 사이즈 줄어들어도 가운데로 유지
+  // padding-inline: 2rem;
+  padding-inline: $wrapper-padding-inline;
+  // $padding-inline:2rem 변수로 만들어주기
+}
+
+header {
+  text-align: center;
+  // 글자가 가운데 있으면 좋겠다.
+  text-wrap: balance;
+  // 신기능, 텍스트가 균형있게 줄넘김됨
+  word-break: keep-all;
+  // 한글 줄바꿈 단어 안잘리게 하는 옵션
+}
+
+// nth-child도 있는데 그 차이는 검색해보기
+// :nth-child(N)= 부모안에 모든 요소 중 N번째 요소
+section:nth-of-type(odd) {
+  background-color: $bgVariant;
+}
+
+.stickyWrapper {
+  display: grid;
+  position: relative;
+  // 스트키 잘 작동하기위해
+  grid-template-columns: fit-content(0) 1fr;
+  grid-template-rows: 1fr;
+  // 개발자도구에서 그리드버튼 눌러 현황 볼 수 있음
+}
+
+main {
+  z-index: 1;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  // row너 첫번째칸에 있어
+}
+
+aside {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  // 따ㅏ라옴
+  grid-column: 1;
+  grid-row: 1;
+  width: fit-content;
+  height: max(100dvh, $min-height);
+  padding-inline: 1rem 1.5rem;
+  border-radius: 0 1rem 1rem 0;
+  background-color: $surface-transparent;
+  font-size: 0.875rem;
+  backdrop-filter: blur(0.25rem);
+  // 유리같이
+
+  ol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    // 1.2.3.4 제거
+
+    li {
+      display: flex;
+      // 찌그러지는 이슈 해결
+      align-items: center;
+      justify-content: center;
+      transition: color 150ms ease-out;
+      color: $onSurface;
+      font-weight: 600;
+      text-transform: capitalize;
+      gap: 0.75rem;
+
+      &::before {
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        margin-top: 0.125rem;
+        // 동그라미랑 글자 정렬 높이감
+
+        transition: border-color 150ms ease-out;
+        border: 0.125rem solid $onSurface;
+        border-radius: 999999999px;
+      }
+
+      &:hover {
+        color: $accent;
+
+        &::before {
+          border-color: $accent;
+        }
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    // 링크 밑줄없애기
+  }
+}
+
+.progressBar {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  // 스크롤에 잘 ㄸㅏ라옴
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  width: 100%;
+  height: $progressBar-height;
+  background-color: $surface;
+
+  .indicator {
+    position: absolute;
+
+    // transform: scaleX(100%);
+    transform-origin: left;
+    background-color: $accent;
+    inset: 0;
+  }
+}
+
+footer {
+  .wrapper {
+    min-height: max(100dvh, $min-height);
+  }
+}
+
+@media (width < 67.5rem) {
+  .stickyWrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  main {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  aside {
+    top: $progressBar-height;
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+    height: fit-content;
+    padding-block: 1rem;
+    padding-inline: unset;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    border-radius: 0 0 1rem 1rem;
+
+    ol {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 3rem;
+
+      a:first-of-type li {
+        margin-left: $wrapper-padding-inline;
+      }
+
+      a:last-of-type li {
+        margin-right: $wrapper-padding-inline;
+      }
+    }
+  }
+
+  .progressBar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+@media (width < 59.1875rem) {
+  aside {
+    ol {
+      justify-content: flex-start;
+    }
+  }
+}

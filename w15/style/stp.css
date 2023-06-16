@@ -55,11 +55,13 @@ img {
     margin-inline: auto;
     padding-inline: auto;
 	transition: opacity 0.4s;
+	transition: transform 0.3s ease;
+	opacity: 0.6;
 }
 
 img:hover {
-	opacity: 0.5;
-	filter: blur(2px);
+	opacity:1;
+	transform: scale(1.09);
 }
 
 a {
@@ -82,14 +84,17 @@ a:hover {
 }
 
 .content__text {
-	margin: 0;
+	margin-inline: auto;
 	white-space: normal;
-	word-spacing: 2px;
-	word-break: break-all;
+	word-spacing: 1.5px;
 	text-align: justify;
+	overflow-wrap: normal;
+	word-break: keep-all;
 	
+	
+
 	font-family: 'Diphylleia', serif;
-    font-size: 56px;
+    font-size: 3rem;
 	background-color: var(--color-text);
 	background-image: linear-gradient(45deg, var(--color-gr-1), var(--color-gr-2));
 	background-size: 100%;
@@ -99,11 +104,9 @@ a:hover {
 	-moz-background-clip: text;
 	-moz-text-fill-color: transparent;
 	line-height:1.5;
-	max-width: 93.75rem;
-	text-align: left;
+	max-width: 75rem;
+	
 }
-
-
 
 .content__footer {
     color: var(--color-link);
@@ -114,3 +117,20 @@ a:hover {
 	align-items: baseline;
 	font-size: 1.5rem;
 }
+
+/* CSS 애니메이션 효과 정의 */
+@keyframes slide-in {
+	0% {
+	  transform: translateX(-100%);
+	  opacity: 0;
+	}
+	100% {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+  }
+  /* 텍스트에 애니메이션 효과 적용 */
+  .content__text {
+	animation: slide-in 1.5s ease-out;
+  }
+
